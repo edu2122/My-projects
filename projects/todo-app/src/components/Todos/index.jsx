@@ -7,13 +7,13 @@ export function Todos() {
   const { todos } = useTodos();
   const [isEditing, setIsEditing] = useState("");
   return (
-    <ul>
+    <ul className="todo-list">
       {todos.map((todo) => (
         <li
           key={todo.id}
           onDoubleClick={() => setIsEditing(todo.id)}
           className={`
-            todo
+            todo-item
             ${isEditing === todo.id ? "editing" : ""}
           `}
         >

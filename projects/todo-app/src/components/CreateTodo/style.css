@@ -1,0 +1,18 @@
+.todo-input {
+  padding: 10px;
+  text-align: center;
+  width: 300px;
+  height: 42px;
+  color: var(--primary-text-color, #fff);
+  border-radius: 15px;
+  border: 1px solid var(--secondary-text-color, #4b4b4b);
+  background: var(--background, #0e0e0e);
+}
+
+.todo-input:focus {
+  outline: none;
+}
+
+.todo-form {
+  padding: 20px 0 20px;
+}

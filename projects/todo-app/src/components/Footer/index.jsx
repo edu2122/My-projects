@@ -9,21 +9,24 @@ export function Footer() {
   const activeTodos = active(todos);
   const completeTodos = completed(todos);
   return (
-    <footer >
-      <div>
-        <span>
-          <strong className="strong">{activeTodos} pending</strong>
-        </span>
-        <span>
-          <strong className="strong">{completeTodos} completed</strong>
-        </span>
+    <footer className="filters-container">
+      <Filters />
+      {/* completed and pendings */}
+      <div className="tools-container">
+        <div className="notifications">
+          <span>
+            <strong>{activeTodos} Pending</strong>
+          </span>
+          <span>
+            <strong>{completeTodos} Completed</strong>
+          </span>
+        </div>
         {completeTodos > 0 && (
           <button className="clear-completed" onClick={onClearCompleted}>
             Clear completed
           </button>
         )}
       </div>
-      <Filters />
     </footer>
   );
 }

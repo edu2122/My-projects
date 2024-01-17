@@ -9,17 +9,17 @@ export function Filters() {
     handleFilterChange(key);
   };
   return (
-    <ul className="todo-filters">
+    <ul className="filters">
       {Object.entries(FILTERS_BUTTONS).map(([key, { href, literal }]) => {
         const isSelected = key === filterSelected;
         const className = isSelected ? "selected" : "";
         return (
-          <li className="filters" key={key}>
-            <a
-              href={href}
-              className={className}
-              onClick={(event) => handleClick({ event, key })}
-            >
+          <li
+            key={key}
+            onClick={(event) => handleClick({ event, key })}
+            className={`filter ${className}`}
+          >
+            <a href={href} onClick={(event) => handleClick({ event, key })}>
               {literal}
             </a>
           </li>

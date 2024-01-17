@@ -1,0 +1,60 @@
+.filters-container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.tools-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.notifications {
+  display: flex;
+  flex-direction: column;
+}
+
+.clear-completed {
+  position: relative;
+  font-weight: 600;
+  font-size: var(--text-font-size);
+  padding: 5px 24px;
+  border-radius: 24px;
+  border: 1.6px solid var(--secondary-text-color);
+  color: var(--secondary-text-color);
+  background-color: transparent;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  overflow: hidden;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.clear-completed::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 50px;
+  height: 50px;
+  border-radius: inherit;
+  scale: 0;
+  z-index: -1;
+  background-color: #fc8888;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.clear-completed:hover::before {
+  scale: 3;
+}
+
+.clear-completed:hover {
+  color: var(--terciary-text-color);
+  scale: 1.1;
+  box-shadow: 0 0px 7px #ff5f5f;
+  border: none;
+}
+
+.clear-completed:active {
+  scale: 1;
+}

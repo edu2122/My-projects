@@ -1,0 +1,12 @@
+.todo-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 25vh;
+  align-items: center;
+  padding-top: 25px;
+}
+
+.todo-title {
+  font-size: var(--title-font-size);
+}

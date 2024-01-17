@@ -17,8 +17,9 @@ export function CreateTodo() {
     setInputValue(newInputValue);
   };
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="todo-form">
       <input
+        className="todo-input"
         type="text"
         placeholder="Type your todo here"
         value={inputValue}
