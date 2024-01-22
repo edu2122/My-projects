@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import { TodosContext } from "../context/todos.jsx";
-import { useFilters } from "./useFilters.js";
-export function useTodos() {
-  const { todos, setTodos } = useContext(TodosContext);
-  const { filtersTodos } = useFilters();
+import { TODO_FILTERS } from "../consts.js";
 
+export function useTodos() {
+  const { todos, setTodos, filterSelected, setFilterSelected } = useContext(TodosContext);
+
+  // Functionalities for the Todos
   const handleCheck = ({ id, completed }) => {
     setTodos((prevState) =>
       prevState.map((todo) => {
@@ -32,7 +33,7 @@ export function useTodos() {
     setTodos((prevState) => prevState.filter((todo) => todo.id !== id));
   }
 
-  const  handleUpdateTitle =({id, title})=> {
+  const handleUpdateTitle =({id, title})=> {
     const newTodos = todos.map((todo) => {
       if (todo.id === id) {
         return {
@@ -49,12 +50,41 @@ export function useTodos() {
     const newTodos = todos.filter((todo) => !todo.completed);
     setTodos(newTodos);
   }
+
+  // functionalities for the filters
+  const filtersTodos = todos.filter((todo) => {
+    if (filterSelected === TODO_FILTERS.ACTIVE) return !todo.completed;
+    if (filterSelected === TODO_FILTERS.COMPLETED) return todo.completed;
+    return todo;
+  });
+
+  const handleFilterChange = (filter) => {
+    setFilterSelected(filter);
+    const params = new URLSearchParams(window.location.search);
+    params.set("filter", filter);
+    window.history.pushState(
+      {},
+      "",
+      `${window.location.pathname}?${params.toString()}`
+    );
+  };
+  
+  const active = (todos) =>
+    todos.filter((todo) => todo.completed === false).length;
+  const completed = (todos) => todos.length - active(todos);
+
   return {
-    todos: filtersTodos(todos),
+    todos: filtersTodos,
     handleAddTodo,
     handleCheck,
     handleDelete,
     handleUpdateTitle,
     handleClearCompleted,
+    handleFilterChange,
+    active,
+    completed,
   };
 }
+
+
+

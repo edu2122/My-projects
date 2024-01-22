@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { useTodos } from "../../hooks/useTodos";
+import { useTodosFirst } from "../../hooks/useTodosFirst";
 import "./style.css";
 
 export function CreateTodo() {
-  const { handleAddTodo: onAddTodo } = useTodos();
+  const { handleSave: onAddTodo } = useTodosFirst();
   const [inputValue, setInputValue] = useState("");
   const handleSubmit = (event) => {
     event.preventDefault();

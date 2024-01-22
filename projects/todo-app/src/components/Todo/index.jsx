@@ -1,18 +1,19 @@
-import { useTodos } from "../../hooks/useTodos";
+// import { useTodos } from "../../hooks/useTodos";
+import { useTodosFirst } from "../../hooks/useTodosFirst";
 import { useEffect, useRef, useState } from "react";
 import "./style.css";
 
 export function Todo({ id, title, completed, isEditing, setIsEditing }) {
   const {
-    handleDelete: removeTodo,
-    handleCheck: setCompleted,
+    handleRemove: removeTodo,
+    handleCompleted: setCompleted,
     handleUpdateTitle: setTitle,
-  } = useTodos();
+  } = useTodosFirst();
   function onToggleCompleted(event) {
     const completed = event.target.checked;
     setCompleted({ id, completed });
   }
-  const className = completed ? "completed" : "incomplete";
+  const className = completed ? "completed" : "";
   const [editedTitle, setEditedTitle] = useState(title);
   const inputEditTitle = useRef(null);
   // eslint-disable-next-line no-unused-vars
@@ -23,12 +24,12 @@ export function Todo({ id, title, completed, isEditing, setIsEditing }) {
         setTitle({ id, title: editedTitle });
       }
       if (editedTitle === "") {
-        removeTodo(id);
+        removeTodo({ id });
       }
       setIsEditing("");
     }
     if (event.key === "Escape") {
-      setEditedTitle(title);
+      setEditedTitle({ title });
       setIsEditing("");
     }
   };
@@ -39,7 +40,7 @@ export function Todo({ id, title, completed, isEditing, setIsEditing }) {
   return (
     <>
       {/* Check-todo  */}
-      <label className="container">
+      <label className={`container ${className}`}>
         <input
           type="checkbox"
           checked={completed}
@@ -70,7 +71,7 @@ export function Todo({ id, title, completed, isEditing, setIsEditing }) {
         </label>
       </label>
       {/* className="delete-btn" */}
-      <button onClick={() => removeTodo(id)} className="bin-button">
+      <button onClick={() => removeTodo({ id })} className={`bin-button ${className}`}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

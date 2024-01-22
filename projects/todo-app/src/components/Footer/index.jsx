@@ -1,11 +1,15 @@
-import { useFilters } from "../../hooks/useFilters";
-import { useTodos } from "../../hooks/useTodos";
+import { useTodosFirst } from "../../hooks/useTodosFirst";
+
 import { Filters } from "../Filters";
 import "./style.css";
 
 export function Footer() {
-  const { todos, handleClearCompleted: onClearCompleted } = useTodos();
-  const { active, completed } = useFilters();
+  const {
+    todos,
+    handleClearCompleted: onClearCompleted,
+    active,
+    completed,
+  } = useTodosFirst();
   const activeTodos = active(todos);
   const completeTodos = completed(todos);
   return (

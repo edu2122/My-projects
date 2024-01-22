@@ -1,9 +1,9 @@
 import { FILTERS_BUTTONS } from "../../consts";
-import { useFilters } from "../../hooks/useFilters";
+import { useTodosFirst } from "../../hooks/useTodosFirst";
 import "./style.css";
 
 export function Filters() {
-  const { filterSelected, handleFilterChange } = useFilters();
+  const { filterSelected, handleFilterChange } = useTodosFirst();
   const handleClick = ({ event, key }) => {
     event.preventDefault();
     handleFilterChange(key);

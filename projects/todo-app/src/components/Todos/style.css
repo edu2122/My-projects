@@ -14,7 +14,7 @@
   justify-content: space-between;
   align-items: center;
   width: 80%;
-  padding: 10px 10px 10px 0;
+  padding: 10px;
   word-break: break-all;
   border-radius: 15px;
   background: var(--background-todo, #202020); 

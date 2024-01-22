@@ -5,7 +5,7 @@
   height: 42px;
   color: var(--primary-text-color, #fff);
   border-radius: 15px;
-  border: 1px solid var(--secondary-text-color, #4b4b4b);
+  border: 2px solid var(--secondary-text-color, #4b4b4b);
   background: var(--background, #0e0e0e);
 }
 

@@ -4,7 +4,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
   position: relative;
   cursor: pointer;
   font-size: 30px;
@@ -12,14 +11,32 @@
   fill: var(--bg-todo-secondary);
 }
 
+.container.completed {
+  opacity: 0.2;
+}
+
 .container .check-regular {
   flex-shrink: 0; /* propiedad para que no se deforme el svg*/
   animation: keyframes-fill 0.5s;
 }
 
+.container .check-regular:hover {
+  fill: #febc37;
+  box-shadow: 0 0 0 2px #febc37 inset;
+  border-radius: 50%;
+  opacity: 0.6;
+}
+
 .container .check-solid {
   display: none;
   animation: keyframes-fill 0.5s;
+}
+
+.container .check-solid:hover {
+  fill: #febc37;
+  box-shadow: 0 0 0 2px #febc37 inset;
+  border-radius: 50%;
+  opacity: 0.6;
 }
 
 /* ------ On check event ------ */
@@ -98,6 +115,15 @@
 .bin-button:hover .garbage {
   animation: throw 0.4s linear;
 }
+
+.bin-button.completed{
+  opacity: 0.2;
+}
+
+.bin-button.completed:hover{
+  opacity: 1;
+}
+
 @keyframes throw {
   from {
     transform: translate(-400%, -700%);
@@ -111,5 +137,11 @@
 
 .todo-label {
   font-size: var(--text-font-size);
-  font-weight: 500;
+  font-weight: 700;
+  padding-left: 10px;
+  transition: all 0.3s ease; 
+}
+
+.todo-label.completed {
+  text-decoration: line-through;
 }

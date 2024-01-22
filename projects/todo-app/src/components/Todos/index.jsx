@@ -1,14 +1,16 @@
 import { Todo } from "../Todo";
-import { useTodos } from "../../hooks/useTodos";
+import { useTodosFirst } from "../../hooks/useTodosFirst";
 import { useState } from "react";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 import "./style.css";
 
 export function Todos() {
-  const { todos } = useTodos();
+  const { todos } = useTodosFirst();
   const [isEditing, setIsEditing] = useState("");
+  const [parent] = useAutoAnimate();
   return (
-    <ul className="todo-list">
-      {todos.map((todo) => (
+    <ul className="todo-list" ref={parent}>
+      {todos?.map((todo) => (
         <li
           key={todo.id}
           onDoubleClick={() => setIsEditing(todo.id)}
