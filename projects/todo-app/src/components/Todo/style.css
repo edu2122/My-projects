@@ -120,7 +120,7 @@
 }
 
 .bin-button.completed{
-  opacity: 0.2;
+  opacity: 0.7;
 }
 
 .bin-button.completed:hover{
@@ -148,7 +148,7 @@
 
 .todo-label.completed {
   text-decoration: line-through;
-  opacity: 0.2;
+  opacity: 0.7;
 }
 
 /* 
