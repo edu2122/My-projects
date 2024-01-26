@@ -16,7 +16,7 @@ export function Todo({ id, title, completed, isEditing, setIsEditing }) {
   const className = completed ? "completed" : "";
   const [editedTitle, setEditedTitle] = useState(title);
   const inputEditTitle = useRef(null);
-  // eslint-disable-next-line no-unused-vars
+
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
       setEditedTitle(editedTitle.trim());
@@ -62,6 +62,7 @@ export function Todo({ id, title, completed, isEditing, setIsEditing }) {
         >
           <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"></path>
         </svg>
+      </label>
         <label
           className={`
               todo-label 
@@ -69,9 +70,10 @@ export function Todo({ id, title, completed, isEditing, setIsEditing }) {
         >
           {title}
         </label>
-      </label>
-      {/* className="delete-btn" */}
-      <button onClick={() => removeTodo({ id })} className={`bin-button ${className}`}>
+      <button
+        onClick={() => removeTodo({ id })}
+        className={`bin-button ${className}`}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -118,17 +120,19 @@ export function Todo({ id, title, completed, isEditing, setIsEditing }) {
         </svg>
       </button>
 
-      {/* <input
-        value={editedTitle}
-        onChange={(event) => {
-          setEditedTitle(event.target.value);
-        }}
-        onKeyDown={handleKeyDown}
-        onBlur={() => {
-          setIsEditing("");
-        }}
-        ref={inputEditTitle}
-      /> */}
+      {isEditing && (
+        <input
+          value={editedTitle}
+          onChange={(event) => {
+            setEditedTitle(event.target.value);
+          }}
+          onKeyDown={handleKeyDown}
+          onBlur={() => {
+            setIsEditing("");
+          }}
+          ref={inputEditTitle}
+        />
+      )}
     </>
   );
 }

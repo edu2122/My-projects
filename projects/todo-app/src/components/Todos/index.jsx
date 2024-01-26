@@ -17,6 +17,7 @@ export function Todos() {
           className={`
             todo-item
             ${isEditing === todo.id ? "editing" : ""}
+            ${todo.completed ? "completed" : ""}
           `}
         >
           <Todo

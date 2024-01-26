@@ -1,5 +1,4 @@
 import { useTodosFirst } from "../../hooks/useTodosFirst";
-
 import { Filters } from "../Filters";
 import "./style.css";
 
@@ -16,7 +15,7 @@ export function Footer() {
     <footer className="filters-container">
       <Filters />
       {/* completed and pendings */}
-      <div className="tools-container">
+      <div className={`tools-container `}>
         <div className="notifications">
           <span>
             <strong>{activeTodos} Pending</strong>
@@ -25,11 +24,13 @@ export function Footer() {
             <strong>{completeTodos} Completed</strong>
           </span>
         </div>
-        {completeTodos > 0 && (
-          <button className="clear-completed" onClick={onClearCompleted}>
-            Clear completed
-          </button>
-        )}
+        <div className={`btn-container ${completeTodos ? "show" : ""}`}>
+          {completeTodos > 0 && (
+            <button className={`clear-completed`} onClick={onClearCompleted}>
+              Clear completed
+            </button>
+          )}
+        </div>
       </div>
     </footer>
   );

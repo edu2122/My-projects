@@ -9,7 +9,6 @@ const initialState = {
     return storageTodos ? JSON.parse(storageTodos) : [];
   })(),
   filterSelected: (() => {
-    
     // read from url query params using URLSearchParams
     const params = new URLSearchParams(window.location.search);
     const filter = params.get("filter");
