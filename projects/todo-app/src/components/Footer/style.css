@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  font-size: var(--text-font-size);
+  font-weight: normal;
   align-items: center;
   margin-top: 20px;
   margin-bottom: 20px;

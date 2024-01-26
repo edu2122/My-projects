@@ -48,7 +48,7 @@ export function Todo({ id, title, completed, isEditing, setIsEditing }) {
         />
         <svg
           viewBox="0 0 512 512"
-          height="20px"
+          height="30px"
           xmlns="http://www.w3.org/2000/svg"
           className="check-regular"
         >
@@ -56,7 +56,7 @@ export function Todo({ id, title, completed, isEditing, setIsEditing }) {
         </svg>
         <svg
           viewBox="0 0 512 512"
-          height="20px"
+          height="30px"
           xmlns="http://www.w3.org/2000/svg"
           className="check-solid"
         >

@@ -21,6 +21,10 @@
   background: var(--background-todo, #202020); 
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
+
+.todo-item {
+  font-size: var(--text-font-size);
+}
 .todo-list .todo-item input{
   display: none;
 }

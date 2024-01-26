@@ -27,7 +27,7 @@ export function Footer() {
         <div className={`btn-container ${completeTodos ? "show" : ""}`}>
           {completeTodos > 0 && (
             <button className={`clear-completed`} onClick={onClearCompleted}>
-              Clear completed
+              Clear todos
             </button>
           )}
         </div>

@@ -1,8 +1,9 @@
 .todo-input {
   padding: 10px;
   text-align: center;
-  width: 300px;
-  height: 42px;
+  font-size: var(--subtitle-font-size);
+  width: 430px;
+  height: 60px;
   color: var(--primary-text-color, #fff);
   border-radius: 15px;
   border: 2px solid var(--secondary-text-color, #4b4b4b);
